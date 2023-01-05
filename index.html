@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع التحقق الضريبي</title>
+    <!-- put image files in /, then put this in your <head>: -->
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16" />
+    <link rel="shortcut icon" href="favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32" />
+
+    <!-- iOS 7 or prior (legacy) -->
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon-57x57.png">
+
+
+    <!-- iOS 8 and later -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-touch-icon-60x60.png">
+
+    <!-- launcher (Android/Chrome) -->
+    <link rel="manifest" href="favicon/manifest.json">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <ion-backdrop id="backdrop" visible="true"></ion-backdrop>
+    <div class="ion-page" id="main-content">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title class="header-title">
+                    <p>موقع التحقق الضريبي</p>
+                    <!-- <ion-img class="logo" src="imgs/logo.png" alt="Logo"></ion-img> -->
+                </ion-title>
+            </ion-toolbar>
+            <ion-progress-bar id="loader" type="indeterminate"></ion-progress-bar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+            <ion-tabs>
+
+                <ion-tab tab="tab-uploader">
+                    <ion-nav class="uploader-container">
+                        <input id="uploader_input" type="file" class="filepond" name="filepond"
+                            accept="image/png, image/jpeg" />
+                        <ion-modal trigger="open-modal" initial-breakpoint="0.25" handle-behavior="cycle">
+                            <ion-content class="ion-padding">
+                                <div class="ion-margin-top">
+                                    <ion-label id="upload_modal_label">
+                                        <ion-grid>
+                                            <ion-row class="ion-justify-content-center ion-align-items-center">
+                                                <ion-col size="12">
+                                                    <ion-icon name="storefront-outline"></ion-icon>
+                                                    <p>اسم المنشأة: <span class="facility_name"></span></p>
+                                                </ion-col>
+                                                <ion-col size="12">
+                                                    <ion-icon name="cash-outline"></ion-icon>
+                                                    <p>القيمة: <span class="bill_value"></span></p>
+                                                </ion-col>
+                                                <ion-col size="12">
+                                                    <ion-icon name="calendar-outline"></ion-icon>
+                                                    <p>التاريخ: <span class="bill_date"></span></p>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                    </ion-label>
+                                </div>
+                            </ion-content>
+                        </ion-modal>
+                    </ion-nav>
+                </ion-tab>
+
+                <ion-tab tab="tab-scan">
+                    <ion-nav class="scan-container">
+                        <div id="camera_selector_container">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-select id="cam-list" interface="popover" placeholder="اختر الكاميرا">
+                                    </ion-select>
+                                </ion-item>
+                            </ion-list>
+                        </div>
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>مربع التصوير</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <div id="video_container">
+                                    <video id="qr-video"></video>
+                                    <ion-modal trigger="open-modal" initial-breakpoint="0.25" handle-behavior="cycle">
+                                        <ion-content class="ion-padding">
+                                            <div class="ion-margin-top">
+                                                <ion-label id="upload_modal_label">
+                                                    <ion-grid>
+                                                        <ion-row
+                                                            class="ion-justify-content-center ion-align-items-center">
+                                                            <ion-col size="12">
+                                                                <ion-icon name="storefront-outline"></ion-icon>
+                                                                <p>اسم المنشأة: <span class="facility_name"></span></p>
+                                                            </ion-col>
+                                                            <ion-col size="12">
+                                                                <ion-icon name="cash-outline"></ion-icon>
+                                                                <p>القيمة: <span class="bill_value"></span></p>
+                                                            </ion-col>
+                                                            <ion-col size="12">
+                                                                <ion-icon name="calendar-outline"></ion-icon>
+                                                                <p>التاريخ: <span class="bill_date"></span></p>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </ion-label>
+                                            </div>
+                                        </ion-content>
+                                    </ion-modal>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                        <ion-button id="scan_again" disabled="true">أعد المسح</ion-button>
+                    </ion-nav>
+                </ion-tab>
+
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button tab="tab-uploader">
+                        <ion-icon name="camera-outline"></ion-icon>
+                        <ion-label>تحميل صورة</ion-label>
+                    </ion-tab-button>
+
+                    <ion-tab-button id="tab_scan" tab="tab-scan">
+                        <ion-icon name="qr-code-outline"></ion-icon>
+                        <ion-label>مسح كود</ion-label>
+                    </ion-tab-button>
+                </ion-tab-bar>
+
+            </ion-tabs>
+        </ion-content>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+
+</html>

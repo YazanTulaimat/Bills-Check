@@ -1,0 +1,74 @@
+{
+    "Data": {
+        "Information": [
+            {
+                "Key": "9",
+                "Label": "InfoTest",
+                "InputType": "text",
+                "IsRequired": false
+            },
+            {
+                "Key": "10",
+                "Label": "info test 2",
+                "InputType": "text",
+                "IsRequired": false
+            }
+        ],
+        "ComplaintReasons": [
+            {
+                "Information": [
+                    {
+                        "Key": "2",
+                        "Label": "رقم الفاتورة",
+                        "InputType": "text",
+                        "IsRequired": true
+                    },
+                    {
+                        "Key": "3",
+                        "Label": "تاريخ الفاتورة",
+                        "InputType": "text",
+                        "IsRequired": true
+                    },
+                    {
+                        "Key": "4",
+                        "Label": "الجهة المصدرة للفاتورة",
+                        "InputType": "text",
+                        "IsRequired": true
+                    },
+                    {
+                        "Key": "9",
+                        "Label": "InfoTest",
+                        "InputType": "text",
+                        "IsRequired": false
+                    }
+                ],
+                "Id": 1,
+                "Name": "فاتورة",
+                "DisplayOrder": 5
+            },
+            {
+                "Information": [
+                    {
+                        "Key": "8",
+                        "Label": "عنوان الجهة",
+                        "InputType": "text",
+                        "IsRequired": true
+                    },
+                    {
+                        "Key": "10",
+                        "Label": "info test 2",
+                        "InputType": "text",
+                        "IsRequired": false
+                    }
+                ],
+                "Id": 2,
+                "Name": "مصدر فواتير",
+                "DisplayOrder": 6
+            }
+        ],
+        "Name": "template1",
+        "Code": "1"
+    },
+    "Code": "200",
+    "Message": "Success"
+}

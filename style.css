@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+/* body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.header-title p {
+    margin-right: 1rem;
+    display: inline-block;
+}
+.header-title .logo {
+    width: 1rem;
+    display: inline-block;
+}
+.ion-padding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uploader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filepond--drop-label {
+    color: #4c4e53;
+}
+
+.filepond--label-action {
+    text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+    background-color: #edf0f4;
+}
+.filepond--root {
+    width: 170px;
+    margin: 0 auto;
+}
+.filepond--label-action {
+    color: #00a99d;
+}
+#loader {
+    visibility: hidden;
+    --background: #79ccc8;
+    --progress-background: #00a99d;
+}
+#backdrop {
+    opacity: 0.5;
+    visibility: hidden;
+}
+#upload_modal_label ion-col {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+#upload_modal_label ion-icon {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+#upload_modal_label p {
+    display: inline-block;
+}
+#camera_selector_container {
+    margin-bottom: 1rem;
+}
+.scan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#video_container {
+    width: 250px;
+    height: 250px;
+    display: block;
+}
+#qr-video {
+    opacity: 1 !important;
+    width: 250px !important;
+    height: 250px !important;
+}
+#scan_again {
+    margin-top: 1rem;
+    --background: #00a99d;
+}
+ion-card-title {
+    padding: 1rem;
+}
